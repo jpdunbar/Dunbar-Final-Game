@@ -112,10 +112,12 @@ public class PlayerControl : MonoBehaviour
             {
                 playerPosition += 1;
                 Debug.Log(playerDistance + " < " + distances[i]);
+                /*
                 if (playerDistance < distances[i])
                 {
                     playerPosition -= 1;
                 }
+                */
             }
         }
         currentPlace.text = "Current Place: " + playerPosition.ToString();
