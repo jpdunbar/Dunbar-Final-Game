@@ -19,7 +19,7 @@ public class WaypointFollowing : MonoBehaviour
     float speed;
     bool check;
     bool start;
-    public float distance;
+    public int distance;
     //Thinking about getting a reference of each racer
     //This will allow me to track score, position, maybe give them a new starting position?
     //Distance is used for distance to next waypoint in case they are tied
@@ -60,7 +60,7 @@ public class WaypointFollowing : MonoBehaviour
             GetComponent<NavMeshAgent>().angularSpeed = 120;
             GetComponent<NavMeshAgent>().speed = speed;
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
-            distance = Mathf.Abs(transform.position.x - waypoints[m_CurrentWaypointIndex].position.x);
+            distance = (int) Mathf.Abs(transform.position.x - waypoints[m_CurrentWaypointIndex].position.x);
         }  
     }
 

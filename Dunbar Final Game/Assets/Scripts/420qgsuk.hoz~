@@ -24,21 +24,21 @@ public class PlayerControl : MonoBehaviour
     public int opponent3Checkpoints;
     public int opponent4Checkpoints;
     public int opponent5Checkpoints;
-    public float opponentdistance;
-    public float opponent2distance;
-    public float opponent3distance;
-    public float opponent4distance;
-    public float opponent5distance;
+    public int opponentdistance;
+    public int opponent2distance;
+    public int opponent3distance;
+    public int opponent4distance;
+    public int opponent5distance;
     public int playerCheckpoints;
     public int playerPosition;
-    public float playerDistance;
+    public int playerDistance;
     public int index;
     public int currentWaypoint;
     public int reset;
-    public bool check;
+    bool check;
 
     private int[] allOpponentPositions = new int[5];
-    private float[] allOpponentDistances = new float[5];
+    private int[] allOpponentDistances = new int[5];
 
     // Start is called before the first frame update
     void Start()
@@ -104,17 +104,15 @@ public class PlayerControl : MonoBehaviour
         determinePosition(allOpponentPositions, allOpponentDistances);
     }
 
-    void determinePosition(int[] places, float[] distances)
+    void determinePosition(int[] places, int[] distances)
     {
         for (int i = 0; i < places.Length; i++)
         {
             if (playerCheckpoints < places[i])
             {
-                playerPosition += 1;
-                Debug.Log(playerDistance + " < " + distances[i]);
-                if (playerDistance < distances[i])
+                if (playerDistance > distances[i])
                 {
-                    playerPosition -= 1;
+                    playerPosition += 1;
                 }
             }
         }
