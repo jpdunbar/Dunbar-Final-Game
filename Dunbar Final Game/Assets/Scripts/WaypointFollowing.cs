@@ -29,10 +29,10 @@ public class WaypointFollowing : MonoBehaviour
     void Start()
     {
         navMeshAgent.SetDestination(waypoints[0].position);
-        currentWaypoint = 3;
+        currentWaypoint = 7;
         numberCheckpoints = 0;
         distance = 0;
-        reset = 3;
+        reset = 7;
         place = 1;
         distance = 0;
         check = false;
