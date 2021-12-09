@@ -6,6 +6,8 @@ using UnityEngine.AI;
 public class WaypointFollowing : MonoBehaviour
 {
 
+    public GameObject Player;
+
     public NavMeshAgent navMeshAgent;
     public Transform[] waypoints;
     public int currentWaypoint;
@@ -18,24 +20,34 @@ public class WaypointFollowing : MonoBehaviour
     public float distance;
     public string[] checkpoints;
     int currentCheckpoint;
+    private int startRacing;
+    bool passedOne;
 
     void Start()
     {
         checkpoints = new string[] { "Checkpoint", "Checkpoint2", "Checkpoint3", "Checkpoint4", "Checkpoint5", "Checkpoint6", "Checkpoint7", "Checkpoint8" };
         currentCheckpoint = 0;
-        navMeshAgent.SetDestination(waypoints[0].position);
+        //navMeshAgent.SetDestination(waypoints[0].position);
         currentWaypoint = 7;
         numberCheckpoints = 0;
         distance = 0;
         reset = 7;
         check = false;
         start = true;
-        speed = Random.Range(18.0f, 20.0f);
-        GetComponent<NavMeshAgent>().angularSpeed = 600;
+        passedOne = false;
+        speed = Random.Range(24.0f, 27.0f);
+        GetComponent<NavMeshAgent>().angularSpeed = 800;
     }
 
     void Update()
     {
+        startRacing = Player.GetComponent<PlayerControl>().introActive;
+
+        if(startRacing > 0 && passedOne == false)
+        {
+            navMeshAgent.SetDestination(waypoints[0].position);
+        }
+
         if (reset == waypoints.Length)
         {
             reset = 0;
@@ -53,14 +65,10 @@ public class WaypointFollowing : MonoBehaviour
             check = true;
         }
 
-        if (Input.GetButtonDown("Run"))
-        {
-            
-        }
-
         if (start == false)
         {
-            GetComponent<NavMeshAgent>().angularSpeed = 600;
+            passedOne = true;
+            GetComponent<NavMeshAgent>().angularSpeed = 800;
             GetComponent<NavMeshAgent>().speed = speed;
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
             distance = Vector3.Distance(waypoints[m_CurrentWaypointIndex].position, transform.position);
@@ -77,7 +85,7 @@ public class WaypointFollowing : MonoBehaviour
             reset += 1;
             currentWaypoint += 1;
             check = false;
-            speed = Random.Range(18.0f, 20.0f);
+            speed = Random.Range(24.0f, 27.0f);
         }
     }
 }

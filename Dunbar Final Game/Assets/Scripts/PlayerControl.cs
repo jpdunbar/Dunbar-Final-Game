@@ -53,6 +53,7 @@ public class PlayerControl : MonoBehaviour
     private string[] checkpoints;
     private int currentCheckpoint;
     private int currentLapNumber;
+    public int introActive;
 
     private int[] allOpponentPositions = new int[5];
     private float[] allOpponentDistances = new float[5];
@@ -65,7 +66,8 @@ public class PlayerControl : MonoBehaviour
         reset = 7;
         currentWaypoint = 7;
         check = false;
-        currentLapNumber = 1;
+        currentLapNumber = 0;
+        introActive = 0;
 
         gameOverImage.SetActive(false);
         gameOverImage.SetActive(false);
@@ -79,19 +81,29 @@ public class PlayerControl : MonoBehaviour
         {
             reset = 0;
             currentWaypoint = 0;
+            currentLapNumber += 1;
+            currentLap.text = "Current Lap: " + currentLapNumber.ToString() + "/3";
         }
 
         if (currentCheckpoint == 8)
         {
             currentCheckpoint = 0;
-            currentLapNumber += 1;
-            currentLap.text = "Current Lap: " + currentLapNumber.ToString() + "/3";
         }
 
-        if (currentLapNumber == 1)
+        if (currentLapNumber == 3)
         {
             gameOverImage.SetActive(true);
             gameOver.SetActive(true);
+        }
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            if(introActive <= 0)
+            {
+                intro.SetActive(false);
+                introImage.SetActive(false);
+            }
+            introActive += 1;
         }
 
         if (check == false)

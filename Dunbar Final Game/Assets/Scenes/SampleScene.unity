@@ -1889,6 +1889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3139e5e38f1789a4eb1e8486463c3c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1889276312}
   navMeshAgent: {fileID: 142420397}
   waypoints:
   - {fileID: 1368385322}
@@ -16001,6 +16002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3139e5e38f1789a4eb1e8486463c3c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1889276312}
   navMeshAgent: {fileID: 1548186882}
   waypoints:
   - {fileID: 1368385322}
@@ -19423,8 +19425,8 @@ MonoBehaviour:
   Opponent5: {fileID: 1977801254}
   currentPlace: {fileID: 676328230}
   currentLap: {fileID: 1054234756}
-  gameOver: {fileID: 1974222607}
-  intro: {fileID: 1780496244}
+  gameOver: {fileID: 1974222605}
+  intro: {fileID: 1780496242}
   gameOverImage: {fileID: 624990410}
   introImage: {fileID: 886704669}
 --- !u!33 &1889276317
@@ -20367,7 +20369,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 25, y: 0}
   m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1974222607
@@ -20390,7 +20392,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You Placed 1
+  m_text: Race Over Thank You For Playing!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -20571,6 +20573,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3139e5e38f1789a4eb1e8486463c3c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1889276312}
   navMeshAgent: {fileID: 1977801258}
   waypoints:
   - {fileID: 1368385322}
@@ -21578,6 +21581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3139e5e38f1789a4eb1e8486463c3c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1889276312}
   navMeshAgent: {fileID: 1995208554}
   waypoints:
   - {fileID: 1368385322}
@@ -22958,6 +22962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3139e5e38f1789a4eb1e8486463c3c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 1889276312}
   navMeshAgent: {fileID: 2134105752}
   waypoints:
   - {fileID: 1368385322}
