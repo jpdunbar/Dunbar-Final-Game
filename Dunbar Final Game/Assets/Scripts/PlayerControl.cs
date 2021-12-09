@@ -21,6 +21,7 @@ public class PlayerControl : MonoBehaviour
     public GameObject Opponent5;
 
     public TextMeshProUGUI currentPlace;
+    public TextMeshProUGUI currentLap;
 
     private float speed = 12f;
     private float turnSpeed = 25f;
@@ -47,6 +48,7 @@ public class PlayerControl : MonoBehaviour
     private bool check;
     private string[] checkpoints;
     private int currentCheckpoint;
+    private int currentLapNumber;
 
     private int[] allOpponentPositions = new int[5];
     private float[] allOpponentDistances = new float[5];
@@ -59,6 +61,7 @@ public class PlayerControl : MonoBehaviour
         reset = 7;
         currentWaypoint = 7;
         check = false;
+        currentLapNumber = 1;
     }
 
     void Update()
@@ -72,6 +75,8 @@ public class PlayerControl : MonoBehaviour
         if (currentCheckpoint == 8)
         {
             currentCheckpoint = 0;
+            currentLapNumber += 1;
+            currentLap.text = "Current Lap: " + currentLapNumber.ToString();
         }
 
         if (check == false)

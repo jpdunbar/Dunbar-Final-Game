@@ -11,9 +11,7 @@ public class WaypointFollowing : MonoBehaviour
     public int currentWaypoint;
     int m_CurrentWaypointIndex;
     int reset;
-    int ok;
     public int numberCheckpoints;
-    public int mayber;
     float speed;
     bool check;
     bool start;
