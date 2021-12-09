@@ -20,6 +20,8 @@ public class WaypointFollowing : MonoBehaviour
     bool check;
     bool start;
     public float distance;
+    public string[] checkpoints = new string[]{ "Checkpoint", "Checkpoint2", "Checkpoint3", "Checkpoint4", "Checkpoint5", "Checkpoint6", "Checkpoint7", "Checkpoint8",};
+    int currentCheckpoint;
     //Thinking about getting a reference of each racer
     //This will allow me to track score, position, maybe give them a new starting position?
     //Distance is used for distance to next waypoint in case they are tied
@@ -28,6 +30,8 @@ public class WaypointFollowing : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentCheckpoint = 0;
+        checkpoints[0] = "Checkpoint";
         navMeshAgent.SetDestination(waypoints[0].position);
         currentWaypoint = 7;
         numberCheckpoints = 0;
@@ -49,6 +53,11 @@ public class WaypointFollowing : MonoBehaviour
             currentWaypoint = 0;
         }
 
+        if(currentCheckpoint == 8)
+        {
+            currentCheckpoint = 0;
+        }
+
         if (check == false)
         {
             m_CurrentWaypointIndex = currentWaypoint;
@@ -61,13 +70,16 @@ public class WaypointFollowing : MonoBehaviour
             GetComponent<NavMeshAgent>().speed = speed;
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
             distance = Mathf.Abs(transform.position.x - waypoints[m_CurrentWaypointIndex].position.x);
-        }  
+        }
+
+        Debug.Log(checkpoints[currentCheckpoint]);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("Checkpoint"))
+        if (other.gameObject.CompareTag(checkpoints[currentCheckpoint]))
         {
+            currentCheckpoint += 1;
             numberCheckpoints += 1;
             start = false;
             reset += 1;

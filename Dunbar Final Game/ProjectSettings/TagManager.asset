@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Checkpoint
   - Rain
+  - Checkpoint2
+  - Checkpoint3
+  - Checkpoint4
+  - Checkpoint5
+  - Checkpoint6
+  - Checkpoint7
+  - Checkpoint8
   layers:
   - Default
   - TransparentFX

@@ -36,6 +36,7 @@ public class PlayerControl : MonoBehaviour
     public int currentWaypoint;
     public int reset;
     public bool check;
+    public bool behind;
 
     private int[] allOpponentPositions = new int[5];
     private float[] allOpponentDistances = new float[5];
@@ -48,6 +49,7 @@ public class PlayerControl : MonoBehaviour
         reset = 7;
         currentWaypoint = 7;
         check = false;
+        behind = false;
     }
 
     // Update is called once per frame
@@ -108,26 +110,34 @@ public class PlayerControl : MonoBehaviour
     {
         for (int i = 0; i < places.Length; i++)
         {
-            if (playerCheckpoints < places[i])
+            //Debug.Log(playerCheckpoints + " " + places[i]);
+            if (playerCheckpoints <= places[i])
             {
-                playerPosition += 1;
-                Debug.Log(playerDistance + " < " + distances[i]);
-                /*
-                if (playerDistance < distances[i])
+                //playerPosition += 1;
+                behind = true;
+                //Debug.Log(playerDistance + " > " + distances[i] + " " + index);
+                if (playerDistance < distances[i] && behind == true)
                 {
-                    playerPosition -= 1;
+                    //playerPosition -= 1;
+                    //playerPosition += 1;
                 }
-                */
             }
+            behind = false;
         }
         currentPlace.text = "Current Place: " + playerPosition.ToString();
     }
+
+    //Place
+    //0-0 So 6th?
+    //Then check if the player is behind any enemy
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Checkpoint"))
         {
             playerCheckpoints += 1;
+            reset += 1;
+            currentWaypoint += 1;
             check = false;
         }
     }
