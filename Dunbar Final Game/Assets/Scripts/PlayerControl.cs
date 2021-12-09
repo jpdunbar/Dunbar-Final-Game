@@ -22,6 +22,10 @@ public class PlayerControl : MonoBehaviour
 
     public TextMeshProUGUI currentPlace;
     public TextMeshProUGUI currentLap;
+    public GameObject gameOver;
+    public GameObject intro;
+    public GameObject gameOverImage;
+    public GameObject introImage;
 
     private float speed = 20f;
     private float turnSpeed = 50f;
@@ -62,6 +66,11 @@ public class PlayerControl : MonoBehaviour
         currentWaypoint = 7;
         check = false;
         currentLapNumber = 1;
+
+        gameOverImage.SetActive(false);
+        gameOverImage.SetActive(false);
+        intro.SetActive(true);
+        introImage.SetActive(true);
     }
 
     void Update()
@@ -76,7 +85,13 @@ public class PlayerControl : MonoBehaviour
         {
             currentCheckpoint = 0;
             currentLapNumber += 1;
-            currentLap.text = "Current Lap: " + currentLapNumber.ToString();
+            currentLap.text = "Current Lap: " + currentLapNumber.ToString() + "/3";
+        }
+
+        if (currentLapNumber == 1)
+        {
+            gameOverImage.SetActive(true);
+            gameOver.SetActive(true);
         }
 
         if (check == false)

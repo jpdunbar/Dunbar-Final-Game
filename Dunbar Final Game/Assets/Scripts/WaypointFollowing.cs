@@ -31,7 +31,7 @@ public class WaypointFollowing : MonoBehaviour
         check = false;
         start = true;
         speed = Random.Range(18.0f, 20.0f);
-        GetComponent<NavMeshAgent>().angularSpeed = 10;
+        GetComponent<NavMeshAgent>().angularSpeed = 600;
     }
 
     void Update()
@@ -53,9 +53,14 @@ public class WaypointFollowing : MonoBehaviour
             check = true;
         }
 
-        if(start == false)
+        if (Input.GetButtonDown("Run"))
         {
-            GetComponent<NavMeshAgent>().angularSpeed = 120;
+            
+        }
+
+        if (start == false)
+        {
+            GetComponent<NavMeshAgent>().angularSpeed = 600;
             GetComponent<NavMeshAgent>().speed = speed;
             navMeshAgent.SetDestination(waypoints[m_CurrentWaypointIndex].position);
             distance = Vector3.Distance(waypoints[m_CurrentWaypointIndex].position, transform.position);
