@@ -30,7 +30,7 @@ public class WaypointFollowing : MonoBehaviour
         reset = 7;
         check = false;
         start = true;
-        speed = Random.Range(10.0f, 12.0f);
+        speed = Random.Range(18.0f, 20.0f);
         GetComponent<NavMeshAgent>().angularSpeed = 10;
     }
 
@@ -72,7 +72,7 @@ public class WaypointFollowing : MonoBehaviour
             reset += 1;
             currentWaypoint += 1;
             check = false;
-            speed = Random.Range(10.0f, 12.0f);
+            speed = Random.Range(18.0f, 20.0f);
         }
     }
 }

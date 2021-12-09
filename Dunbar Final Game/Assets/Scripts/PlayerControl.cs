@@ -23,8 +23,8 @@ public class PlayerControl : MonoBehaviour
     public TextMeshProUGUI currentPlace;
     public TextMeshProUGUI currentLap;
 
-    private float speed = 12f;
-    private float turnSpeed = 25f;
+    private float speed = 20f;
+    private float turnSpeed = 50f;
 
     private int opponentCheckpoints;
     private int opponent2Checkpoints;
